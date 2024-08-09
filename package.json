@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3"
-  }, 
-  "homepage" : "https://ejkyecontentsx.github.io/react-masterclass"
+  },
+  "homepage": "https://ejkyecontentsx.github.io/react-masterclass"
+
 }

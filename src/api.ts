@@ -23,3 +23,5 @@ export function fetchCoinTikers(coinId:string){
 export function fetchCoinHistory(coinId:string){
     return fetch(`${BASE_URL2}?coinId=${coinId}`).then((response) => response.json());
 }
+
+

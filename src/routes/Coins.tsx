@@ -3,7 +3,7 @@ import { useQueries, useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoins } from "../api.ts";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../atoms.ts";
 
 const Container = styled.div`
@@ -126,6 +126,7 @@ function Coins(){
 
     const {isLoading, data} = useQuery<CoinInterface[]>("allCoins", fetchCoins);
     const toggleDark = useSetRecoilState(isDarkAtom);
+    const isDark = useRecoilValue(isDarkAtom);
     const toggleDarkClick = () =>{ toggleDark((prev)=>!prev); };
 
 
@@ -145,7 +146,7 @@ function Coins(){
         <Header>
             <Title>Coins</Title>
             <Label>
-                <CheckBox role="switch" type="checkbox" onClick={toggleDarkClick} />
+                <CheckBox role="switch" type="checkbox" onClick={toggleDarkClick} checked = {isDark} />
                 <span>Dark Mode</span>
             </Label>
         </Header>

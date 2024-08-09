@@ -6,7 +6,7 @@ import Price from "./Price.tsx";
 import Chart from "./Chart.tsx";
 import { useQuery } from "react-query";
 import { fetchCoinInfo, fetchCoinTikers } from "../api.ts";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../atoms.ts";
 
 const Container = styled.div`
@@ -205,6 +205,7 @@ function Coin(){
 
     const toggleDark = useSetRecoilState(isDarkAtom);
     const toggleDarkClick = () =>{ toggleDark((prev)=>!prev); };
+    const isDark = useRecoilValue(isDarkAtom);
 
 
     // const [loading, setLoading] = useState(true);
@@ -239,7 +240,7 @@ function Coin(){
       <Tabs>
       <div><Link to={`/`} >Back to Coin  List</Link></div>
       <Label>
-                <CheckBox role="switch" type="checkbox" onClick={toggleDarkClick} />
+                <CheckBox role="switch" type="checkbox" onClick={toggleDarkClick} checked={isDark} />
                 <span>Dark Mode</span>
             </Label>
       </Tabs>

@@ -8,7 +8,7 @@ import Coin from "./routes/Coin.tsx";
 
 
 function Router(){
-    return <BrowserRouter>
+    return <BrowserRouter basename="react-masterclass">
         <Switch>
 
             <Route path="/:coinId">
